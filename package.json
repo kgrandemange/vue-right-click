@@ -1,0 +1,35 @@
+{
+  "name": "vue-right-click",
+  "version": "0.1.0",
+  "description": "Right Click menu for VueJS 2.X.",
+  "main": "dist/vue-right-click.js",
+  "scripts": {
+    "build": "rimraf ./dist && webpack --config ./webpack.config.js"
+  },
+  "author": "Kevin Grandemange",
+  "license": "MIT",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgrandemange/vue-right-click"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "babel-runtime": "^6.9.2",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.9.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^7.0.3",
+    "vue": "^2.5.2",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^13.3.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "3.8.1",
+    "webpack-merge": "^4.1.0"
+  }
+}
