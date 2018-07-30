@@ -3,7 +3,7 @@
         <slot></slot>
         <transition name="fade">
             <ul v-show="openMenu" :style="{top: top, left: left, height: height}" class="menu" ref="contextMenuItems" @blur="openMenu = false">
-                <li v-for="item in items" @click.prevent.stop="item.onClick" :key="item.id">
+                <li v-for="item in items" @click.prevent="item.onClick" :key="item.id">
                     {{ item.name }}
                 </li>
             </ul>
