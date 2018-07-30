@@ -40,7 +40,7 @@
             contextMenuHandler (e) {
                 this.top = `${e.clientY + document.body.scrollTop + document.documentElement.scrollTop}px`
                 this.left = `${e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft}px`
-                this.height = `${2 * 30}px`
+                this.height = `${this.items.length * 30}px`
                 this.openMenu = true
             }
         }
