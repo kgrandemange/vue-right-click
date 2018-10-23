@@ -29,12 +29,12 @@
             this.handleEvent = function() {
                 this.openMenu = false
             }
-            window.document.querySelector('body').addEventListener('click', this)
-            window.document.querySelector('body').addEventListener('contextmenu', this)
+            window.document.querySelector('html').addEventListener('click', this)
+            window.document.querySelector('html').addEventListener('contextmenu', this)
         },
         beforeDestroy () {
-            window.document.querySelector('body').removeEventListener('click', this)
-            window.document.querySelector('body').removeEventListener('contextmenu', this)
+            window.document.querySelector('html').removeEventListener('click', this)
+            window.document.querySelector('html').removeEventListener('contextmenu', this)
         },
         methods: {
             contextMenuHandler (e) {
