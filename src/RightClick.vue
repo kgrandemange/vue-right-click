@@ -29,8 +29,8 @@
             this.handleEvent = function() {
                 this.openMenu = false
             }
-            this.$root.$el.addEventListener('click', this)
-            this.$root.$el.addEventListener('contextmenu', this)
+            window.document.querySelector('body').addEventListener('click', this)
+            window.document.querySelector('body').addEventListener('contextmenu', this)
         },
         beforeDestroy () {
             this.$root.$el.removeEventListener('click', this)
