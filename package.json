@@ -1,6 +1,6 @@
 {
   "name": "vue-right-click",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Right Click menu for VueJS 2.X.",
   "main": "dist/vue-right-click.js",
   "scripts": {
