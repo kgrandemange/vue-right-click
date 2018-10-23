@@ -33,8 +33,8 @@
             window.document.querySelector('body').addEventListener('contextmenu', this)
         },
         beforeDestroy () {
-            this.$root.$el.removeEventListener('click', this)
-            this.$root.$el.removeEventListener('contextmenu', this)
+            window.document.querySelector('body').removeEventListener('click', this)
+            window.document.querySelector('body').removeEventListener('contextmenu', this)
         },
         methods: {
             contextMenuHandler (e) {
