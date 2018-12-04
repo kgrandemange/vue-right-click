@@ -32,15 +32,11 @@
                 top: 0,
                 left: 0,
                 width: 0,
-                contextMenuItems: null,
-                currentMenuId: 0
+                contextMenuItems: null
             }
         },
-        created () {
-            this.currentMenuId = Math.floor((Math.random() * 1000000) + 1);
-        },
         mounted () {
-            this.handleEvent = function(e) {
+            this.handleEvent = function() {
                 this.openMenu = false
             }
             window.document.querySelector('html').addEventListener('contextmenu', this)

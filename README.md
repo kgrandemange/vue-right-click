@@ -1,30 +1,34 @@
 # vue-right-click
 
-A Vue.JS Right Click Menu
-
-## Demo
-
-[Here](https://vue-right-click.kevingrandemange.net/)
-
-## Installation
-
-npm i vue-right-click
-
-## Browser
-
-Include the script file, then install the component with `Vue.use(VueRightClick);`:
-
-```html
-<script type="text/javascript" src="node_modules/vuejs/dist/vue.min.js"></script>
-<script type="text/javascript" src="node_modules/vue-clock-simple/dist/vue-right-click.min.js"></script>
-<script type="text/javascript">
-  Vue.use(VueRightClick);
-</script>
+## Project setup
 ```
-## Module
-
-```javascript
-import VueRightClick from 'vue-right-click'
+npm install
 ```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
