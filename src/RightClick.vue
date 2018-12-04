@@ -1,8 +1,8 @@
 <template>
-    <div @contextmenu.prevent.stop="contextMenuHandler">
+    <div @contextmenu.prevent.stop="contextMenuHandler" @blur="blurHandler">
         <slot></slot>
         <transition name="fade">
-            <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems" @blur="openMenu = false">
+            <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems">
                 <li v-for="item in items" @click.prevent="handleClick(item)" :key="item.id">
                     <span v-if="item.template" v-html="item.template"></span>
                     <span v-else>{{ item.name }}</span>
@@ -32,18 +32,20 @@
                 top: 0,
                 left: 0,
                 width: 0,
-                contextMenuItems: null
+                contextMenuItems: null,
+                currentMenuId: 0
             }
         },
+        created () {
+            this.currentMenuId = Math.floor((Math.random() * 1000000) + 1);
+        },
         mounted () {
-            this.handleEvent = function() {
+            this.handleEvent = function(e) {
                 this.openMenu = false
             }
-            window.document.querySelector('html').addEventListener('click', this)
             window.document.querySelector('html').addEventListener('contextmenu', this)
         },
         beforeDestroy () {
-            window.document.querySelector('html').removeEventListener('click', this)
             window.document.querySelector('html').removeEventListener('contextmenu', this)
         },
         methods: {
@@ -54,6 +56,11 @@
             },
             handleClick(item) {
                 item.onClick(this.currentItem)
+                this.openMenu = false
+            },
+            blurHandler () {
+                console.log('blurHandler')
+                this.openMenu = false
             }
         }
     }
