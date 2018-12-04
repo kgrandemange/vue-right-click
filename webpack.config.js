@@ -42,7 +42,7 @@ module.exports = [
     output: {
       filename: 'vue-right-click.min.js',
       libraryTarget: 'window',
-      library: 'VueFlip',
+      library: 'VueRightClick',
     }
   }),
   merge(config, {
