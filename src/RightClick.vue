@@ -2,7 +2,7 @@
     <div @contextmenu.prevent.stop="contextMenuHandler">
         <slot></slot>
         <transition name="fade">
-            <ul v-show="openMenu" :style="{top: top, left: left, height: height}" class="menu" ref="contextMenuItems" @blur="openMenu = false">
+            <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems" @blur="openMenu = false">
                 <li v-for="item in items" @click.prevent="item.onClick" :key="item.id">
                     {{ item.name }}
                 </li>
@@ -20,7 +20,6 @@
                 openMenu: false,
                 top: 0,
                 left: 0,
-                height: 0,
                 width: 0,
                 contextMenuItems: null
             }
@@ -40,7 +39,6 @@
             contextMenuHandler (e) {
                 this.top = `${e.clientY + document.body.scrollTop + document.documentElement.scrollTop}px`
                 this.left = `${e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft}px`
-                this.height = `${this.items.length * 30}px`
                 this.openMenu = true
             }
         }
