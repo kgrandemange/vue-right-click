@@ -3,7 +3,7 @@
         <slot></slot>
         <transition name="fade">
             <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems" @blur="openMenu = false">
-                <li v-for="item in items" @click.prevent="item.onClick" :key="item.id">
+                <li v-for="item in items" @click.prevent="handleClick(item)" :key="item.id">
                     <span v-if="item.template" v-html="item.template"></span>
                     <span v-else>{{ item.name }}</span>
                 </li>
@@ -15,7 +15,17 @@
 <script>
     export default {
         name: 'right-click',
-        props: ['items'],
+        props: {
+            items: {
+                type: Array,
+                required: true
+            },
+            currentItem: {
+                type: Object,
+                required: false,
+                default: null
+            }
+        },
         data () {
             return {
                 openMenu: false,
@@ -41,6 +51,9 @@
                 this.top = `${e.clientY + document.body.scrollTop + document.documentElement.scrollTop}px`
                 this.left = `${e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft}px`
                 this.openMenu = true
+            },
+            handleClick(item) {
+                item.onClick(this.currentItem)
             }
         }
     }
