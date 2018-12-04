@@ -4,7 +4,8 @@
         <transition name="fade">
             <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems" @blur="openMenu = false">
                 <li v-for="item in items" @click.prevent="item.onClick" :key="item.id">
-                    {{ item.name }}
+                    <span v-if="item.template" v-html="item.template"></span>
+                    <span v-else>{{ item.name }}</span>
                 </li>
             </ul>
         </transition>
