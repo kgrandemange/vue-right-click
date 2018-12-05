@@ -65,7 +65,6 @@
   .menu {
     position: fixed;
     z-index: 1000;
-    width: 200px;
     border-radius: 4px;
     border: 1px solid #ebeef5;
     background-color: #fff;
