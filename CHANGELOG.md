@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.0] - 2012-12-06
+
+### Changed
+- Use Typescript
+- Replace Onclick function by action string
+
 ## [2.0.3] - 2012-12-05
 
 ### Added
