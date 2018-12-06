@@ -2,7 +2,7 @@
   <div @contextmenu.prevent.stop="contextMenuHandler" @blur="blurHandler">
     <slot></slot>
     <transition name="fade">
-      <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" ref="contextMenuItems">
+      <ul v-show="openMenu" :style="{top: top, left: left }" class="menu" >
         <li v-for="item in items" @click.prevent="handleClick(item)" :key="item.id">
           <span v-if="item.template" v-html="item.template"></span>
           <span v-else>{{ item.name }}</span>
@@ -12,51 +12,49 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'right-click',
-    props: {
-      items: {
-        type: Array,
-        required: true
-      },
-      currentItem: {
-        type: Object,
-        required: false,
-        default: null
-      }
-    },
-    data () {
-      return {
-        openMenu: false,
-        top: 0,
-        left: 0,
-        width: 0,
-        contextMenuItems: null
-      }
-    },
+<script lang="ts">
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+
+  export type RightClickItem = {
+    id: Number,
+    template?: String,
+    name?: String,
+    action: String
+  }
+
+  @Component
+  export default class RightClick extends Vue {
+    @Prop() private items!: Array<Object>;
+
+    private openMenu = false;
+    private top = '0';
+    private left = '0';
+    public handleEvent!: (evt: Event) => void;
+
     mounted () {
       this.handleEvent = function() {
         this.openMenu = false
-      }
-      window.document.querySelector('html').addEventListener('contextmenu', this)
-    },
+      };
+      window!.document!.querySelector('html')!.addEventListener('contextmenu', this);
+    }
+
     beforeDestroy () {
-      window.document.querySelector('html').removeEventListener('contextmenu', this)
-    },
-    methods: {
-      contextMenuHandler (e) {
-        this.top = `${e.clientY + document.body.scrollTop + document.documentElement.scrollTop}px`
-        this.left = `${e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft}px`
-        this.openMenu = true
-      },
-      handleClick(item) {
-        item.onClick(this.currentItem)
-        this.openMenu = false
-      },
-      blurHandler () {
-        this.openMenu = false
-      }
+      window!.document!.querySelector('html')!.removeEventListener('contextmenu', this);
+    }
+
+    contextMenuHandler (e: MouseEvent) {
+      this.top = `${e.clientY + document.body.scrollTop + document.documentElement.scrollTop}px`;
+      this.left = `${e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft}px`;
+      this.openMenu = true;
+    }
+
+    handleClick(item: RightClickItem) {
+      this.$emit('action', item.action);
+      this.openMenu = false
+    }
+
+    blurHandler () {
+      this.openMenu = false
     }
   }
 </script>
