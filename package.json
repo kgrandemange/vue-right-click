@@ -1,13 +1,12 @@
 {
   "name": "vue-right-click",
   "version": "3.0.0",
-  "main": "./dist/vue-right-click.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
-    "build:bundle": "vue-cli-service build --target lib ./src/components/index.ts"
+    "build:bundle": "vue-cli-service build --target lib ./src/components/index.ts",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "vue": "^2.5.17",
@@ -16,15 +15,17 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
-    "@types/mocha": "^5.2.4",
+    "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-typescript": "^3.2.0",
-    "@vue/cli-plugin-unit-mocha": "^3.2.0",
+    "@vue/cli-plugin-unit-jest": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
     "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
     "chai": "^4.1.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.17"
   },
@@ -34,5 +35,6 @@
     "public/*",
     "*.json",
     "*.js"
-  ]
+  ],
+  "main": "./dist/vue-right-click.common.js"
 }
