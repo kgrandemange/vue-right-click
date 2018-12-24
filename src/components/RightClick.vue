@@ -24,7 +24,10 @@
 
   @Component
   export default class RightClick extends Vue {
-    @Prop() private items!: Array<Object>;
+    @Prop({
+      required: true
+    }) 
+    private items!: Array<Object>;
 
     private openMenu = false;
     private top = '0';
