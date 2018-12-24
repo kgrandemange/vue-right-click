@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.1] - 2012-12-23
+
+### Added
+
+- Units Tests
+
+### Changed
+
+- Remove unused import
+- Replace Mocha by Jest
+
 ## [3.0.0] - 2012-12-06
 
 ### Changed
